@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+	<!--
+		【这个文件干什么】
+		把 Luxandra Lust 2.0 里被注释掉的 3 个「中立」档戒律重新定义回来。
+		原有文化（.rid）与旧存档里仍然引用这三个 defName，缺了它们会有两个后果：
+		  ① 加载时 def 为 null 的 precept 会被 Verse.Ideo.ExposeData 的 RemoveAll 静默删除，
+		     只留一条 "Some ideoligion precepts were null after loading" 红字
+		  ② 该文化因此少掉这几条戒律：界面里看不到、也选不回来 —— 属于内容丢失，不是崩溃
+
+		【为什么这样修】
+		· 2.0 并没有真删内容，作者只是把整段用 XML 注释包了起来，所以字段可以逐字照抄 1.2.3b。
+		· 三个 issue（Luxandra_CumOfferingIssue / Luxandra_HeartOfLustIssue / Luxandra_Whims）
+		  在 2.0 里依然存在，且 iconPath 指向的贴图也在，所以这里只需补 PreceptDef 本体。
+		· displayOrderInIssue 取 20 / 40 / 30，正好填进 2.0 现有档位之间的空位，UI 排序不会撞车。
+		· defaultSelectionWeight 一律写 0：2.0 的注释原块里 CumOffering 与 Heart 根本没写这个字段
+		  （默认即 0），Whims 明写 0；而这三条 issue 的其它档位权重也全是 0。
+		  作者的意思是「这三个档位只能手动选，不许随机生成时自动带上」。
+		  1.2.3b 的 10 / 1 / 10 是旧值，照抄会让随机生成的 NPC 文化 100% 落到这三档上。
+
+		【什么时候它会自动失效】
+		· 加了 MayRequire="Ludeon.RimWorld.Ideology"：没装 Ideology DLC 时，这三条 def 会被
+		  整个跳过，不会出现「引用了不存在的 issue」这种半截状态。
+		· 若 Luxandra Lust 本身被禁用，本补丁的 modDependencies 会在模组管理器里报红字；
+		  issue 届时不存在，这三条 def 会引用失败，所以禁用 Luxandra 时请一并禁用本补丁。
+
+		【绝对不要同时启用 1.2.3b】
+		1.2.3b 自带这三条定义。同时启用会让 defName 重复，
+		而游戏遇到重名 defName 不是忽略，而是给后来的追加随机数字，会毁掉存档引用。
+		RimWorld 没有「def 已存在就跳过」的条件语法，这一条只能靠启用纪律来保证。
+	-->
+
+	<PreceptDef MayRequire="Ludeon.RimWorld.Ideology">
+		<defName>Luxandra_CumOffering_Neutral</defName>
+		<issue>Luxandra_CumOfferingIssue</issue>
+		<label>neutral</label>
+		<description>Offering one's seed on an altar is simply a matter of personal choice.</description>
+		<impact>Low</impact>
+		<displayOrderInIssue>20</displayOrderInIssue>
+		<defaultSelectionWeight>0</defaultSelectionWeight>
+		<countsTowardsPreceptLimit>false</countsTowardsPreceptLimit>
+	</PreceptDef>
+
+	<PreceptDef MayRequire="Ludeon.RimWorld.Ideology">
+		<defName>Luxandra_HeartOfLust_Allowed</defName>
+		<issue>Luxandra_HeartOfLustIssue</issue>
+		<label>allowed</label>
+		<description>The Heart of Lust is simply a tool provided to us. Consuming or implanting it carries no special weight.</description>
+		<impact>Low</impact>
+		<displayOrderInIssue>40</displayOrderInIssue>
+		<defaultSelectionWeight>0</defaultSelectionWeight>
+	</PreceptDef>
+
+	<PreceptDef MayRequire="Ludeon.RimWorld.Ideology">
+		<defName>Luxandra_Whims_Indifferent</defName>
+		<issue>Luxandra_Whims</issue>
+		<label>indifferent</label>
+		<description>No divine being can tell us how to conduct our sexual life.</description>
+		<impact>Low</impact>
+		<displayOrderInIssue>30</displayOrderInIssue>
+		<defaultSelectionWeight>0</defaultSelectionWeight>
+		<countsTowardsPreceptLimit>false</countsTowardsPreceptLimit>
+	</PreceptDef>
+
+</Defs>

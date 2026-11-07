@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ModMetaData>
+	<name>Luxandra 中立戒律补回</name>
+	<author>大赢经直插白皮赢道</author>
+	<packageId>gnh.cn.cys.luxandra.neutralrestore</packageId>
+	<url>https://gitgud.io/Worldie/luxandra-lust</url>
+	<supportedVersions>
+		<li>1.6</li>
+		<li>1.7</li>
+	</supportedVersions>
+	<modVersion>1.0.0</modVersion>
+	<description>把 Luxandra Lust 2.0 中移除的 3 个「中立」档戒律原样补回。
+
+2.0 的更新说明写着：
+  "Removed the neutral version of most precepts, you are now just able to not select them instead."
+
+但已保存的文化（.rid）与旧存档里仍然引用着这三个 defName，缺少它们会导致（依据 Verse.Ideo.ExposeData 反编译）：
+  · 加载时 def 为 null 的 precept 被 RemoveAll 静默删除，只留一条
+    "Some ideoligion precepts were null after loading" 红字
+  · 该文化因此少掉这几条戒律 —— 界面里看不到、也选不回来，属于内容丢失（不是崩溃）
+
+本补丁不新增任何机制，只是把 1.2.3b（2026-09-05）里的三段 PreceptDef 原样重新定义。
+三个 issue（Luxandra_CumOfferingIssue / Luxandra_HeartOfLustIssue / Luxandra_Whims）在 2.0 中依然存在，故可直接引用。
+
+涉及条目：
+  Luxandra_CumOffering_Neutral  —— 中立（7 个文化在用）
+  Luxandra_HeartOfLust_Allowed  —— 允许（1 个文化在用）
+  Luxandra_Whims_Indifferent    —— 无所谓（6 个文化在用）
+
+【重要】只有在 Luxandra Lust 为 2.0 或更高版本时才启用本补丁。
+若用的是 1.2.3b，它本身就带有这三个定义，同时启用会造成 defName 重复。</description>
+	<modDependencies>
+		<li>
+			<packageId>Worldie.LuxandraLust</packageId>
+			<displayName>Luxandra Lust</displayName>
+			<downloadUrl>https://gitgud.io/Worldie/luxandra-lust</downloadUrl>
+		</li>
+	</modDependencies>
+	<loadAfter>
+		<li>Ludeon.RimWorld</li>
+		<li>Ludeon.RimWorld.Ideology</li>
+		<li>Worldie.LuxandraLust</li>
+	</loadAfter>
+</ModMetaData>

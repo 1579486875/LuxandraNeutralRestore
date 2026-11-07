@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+	<!--
+		译文取自 Luxandra Lust 1.2.3b 的官方简体中文包：
+		Common/Languages/ChineseSimplified (简体中文)/DefInjected/PreceptDef/
+	-->
+
+	<Luxandra_CumOffering_Neutral.label>中立</Luxandra_CumOffering_Neutral.label>
+	<Luxandra_CumOffering_Neutral.description>在祭坛上献上自己的种子只是个人选择的问题。</Luxandra_CumOffering_Neutral.description>
+
+	<Luxandra_HeartOfLust_Allowed.label>允许</Luxandra_HeartOfLust_Allowed.label>
+	<Luxandra_HeartOfLust_Allowed.description>欲望之心不过是提供给我们的工具。食用或植入它并无特殊分量。</Luxandra_HeartOfLust_Allowed.description>
+
+	<Luxandra_Whims_Indifferent.label>无所谓</Luxandra_Whims_Indifferent.label>
+	<Luxandra_Whims_Indifferent.description>没有哪位神明能规定我们如何过自己的性生活。</Luxandra_Whims_Indifferent.description>
+
+</LanguageData>
