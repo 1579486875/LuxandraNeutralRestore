@@ -31,7 +31,7 @@
 		RimWorld 没有「def 已存在就跳过」的条件语法，这一条只能靠启用纪律来保证。
 	-->
 
-	<PreceptDef MayRequire="Ludeon.RimWorld.Ideology">
+	<PreceptDef MayRequire="Ludeon.RimWorld.Ideology,Worldie.LuxandraLust">
 		<!-- 本条的稳定标识，被 .rid 与旧存档直接引用 —— 改了等于断掉所有引用，绝不可动。 -->
 		<defName>Luxandra_CumOffering_Neutral</defName>
 		<!-- 所属的 issue（决定它出现在哪一组戒律下）。写错 → 这一条在界面上根本不出现，且加载时不会报错（静默消失）。这三个 issue 由 Luxandra Lust 在 2.0 里保留，所以只要它装着就一定解析得到。 -->
@@ -50,7 +50,7 @@
 		<countsTowardsPreceptLimit>false</countsTowardsPreceptLimit>
 	</PreceptDef>
 
-	<PreceptDef MayRequire="Ludeon.RimWorld.Ideology">
+	<PreceptDef MayRequire="Ludeon.RimWorld.Ideology,Worldie.LuxandraLust">
 		<!-- 本条的稳定标识，被 .rid 与旧存档直接引用 —— 改了等于断掉所有引用，绝不可动。 -->
 		<defName>Luxandra_HeartOfLust_Allowed</defName>
 		<!-- 所属的 issue（决定它出现在哪一组戒律下）。写错 → 这一条在界面上根本不出现，且加载时不会报错（静默消失）。这三个 issue 由 Luxandra Lust 在 2.0 里保留，所以只要它装着就一定解析得到。 -->
@@ -67,7 +67,7 @@
 		<defaultSelectionWeight>0</defaultSelectionWeight>
 	</PreceptDef>
 
-	<PreceptDef MayRequire="Ludeon.RimWorld.Ideology">
+	<PreceptDef MayRequire="Ludeon.RimWorld.Ideology,Worldie.LuxandraLust">
 		<!-- 本条的稳定标识，被 .rid 与旧存档直接引用 —— 改了等于断掉所有引用，绝不可动。 -->
 		<defName>Luxandra_Whims_Indifferent</defName>
 		<!-- 所属的 issue（决定它出现在哪一组戒律下）。写错 → 这一条在界面上根本不出现，且加载时不会报错（静默消失）。这三个 issue 由 Luxandra Lust 在 2.0 里保留，所以只要它装着就一定解析得到。 -->
