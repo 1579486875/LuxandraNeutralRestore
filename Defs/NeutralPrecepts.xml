@@ -32,34 +32,57 @@
 	-->
 
 	<PreceptDef MayRequire="Ludeon.RimWorld.Ideology">
+		<!-- 本条的稳定标识，被 .rid 与旧存档直接引用 —— 改了等于断掉所有引用，绝不可动。 -->
 		<defName>Luxandra_CumOffering_Neutral</defName>
+		<!-- 所属的 issue（决定它出现在哪一组戒律下）。写错 → 这一条在界面上根本不出现，且加载时不会报错（静默消失）。这三个 issue 由 Luxandra Lust 在 2.0 里保留，所以只要它装着就一定解析得到。 -->
 		<issue>Luxandra_CumOfferingIssue</issue>
+		<!-- 档位名（游戏里显示的那一行小标题）。这里是原作者的英文原词，中文翻译在 Languages/ChineseSimplified/DefInjected/PreceptDef/ 下，两边靠 defName 对应，改这里不会影响翻译。 -->
 		<label>neutral</label>
+		<!-- 档位说明（鼠标悬停时显示的正文）。这里逐字照抄 1.2.3b，不要自己改写 —— 它是玩家判断该不该选这条戒律的唯一依据。 -->
 		<description>Offering one's seed on an altar is simply a matter of personal choice.</description>
+		<!-- 影响等级，决定它在戒律界面里的分组位置。取值只认 High / Medium / Low 三档。⚠ 同文化的 precept 必须按 impact 成组连续排列，否则界面会塌成「一行一格」（见 _scratch 里的 refix_impact_order 记录）。这里三条统一 Low，与 1.2.3b 原值一致。 -->
 		<impact>Low</impact>
+		<!-- 20 —— 填进 2.0 现有档位之间的空位（CumOffering 组）。改大会挤到别的档位后面。 -->
 		<displayOrderInIssue>20</displayOrderInIssue>
+		<!-- 随机生成文化时的被选权重。**填 0 = 只能手动选，随机生成绝不会带上它。**⚠ 这是本文件最容易被改错的一项：1.2.3b 里这三条是 10 / 1 / 10，照抄会让随机生成的 NPC 文化 100% 落到这三档上（作者本意是「只许手选」）。 -->
 		<defaultSelectionWeight>0</defaultSelectionWeight>
+		<!-- 是否占用「每个文化最多 12 条戒律」的额度。false = 不占额度，玩家还能再加别的。⚠ 只有 CumOffering 与 Whims 两条写了 false（与 2.0 注释原块一致）；Heart 那条原块里没有这个字段，默认即 true —— 不要「顺手」给它补上，那会改变原意。 -->
 		<countsTowardsPreceptLimit>false</countsTowardsPreceptLimit>
 	</PreceptDef>
 
 	<PreceptDef MayRequire="Ludeon.RimWorld.Ideology">
+		<!-- 本条的稳定标识，被 .rid 与旧存档直接引用 —— 改了等于断掉所有引用，绝不可动。 -->
 		<defName>Luxandra_HeartOfLust_Allowed</defName>
+		<!-- 所属的 issue（决定它出现在哪一组戒律下）。写错 → 这一条在界面上根本不出现，且加载时不会报错（静默消失）。这三个 issue 由 Luxandra Lust 在 2.0 里保留，所以只要它装着就一定解析得到。 -->
 		<issue>Luxandra_HeartOfLustIssue</issue>
+		<!-- 档位名（游戏里显示的那一行小标题）。这里是原作者的英文原词，中文翻译在 Languages/ChineseSimplified/DefInjected/PreceptDef/ 下，两边靠 defName 对应，改这里不会影响翻译。 -->
 		<label>allowed</label>
+		<!-- 档位说明（鼠标悬停时显示的正文）。这里逐字照抄 1.2.3b，不要自己改写 —— 它是玩家判断该不该选这条戒律的唯一依据。 -->
 		<description>The Heart of Lust is simply a tool provided to us. Consuming or implanting it carries no special weight.</description>
+		<!-- 影响等级，决定它在戒律界面里的分组位置。取值只认 High / Medium / Low 三档。⚠ 同文化的 precept 必须按 impact 成组连续排列，否则界面会塌成「一行一格」（见 _scratch 里的 refix_impact_order 记录）。这里三条统一 Low，与 1.2.3b 原值一致。 -->
 		<impact>Low</impact>
+		<!-- 40 —— 填进 HeartOfLust 组的空位。这个值必须落在同 issue 其它档位之间，否则 UI 顺序错乱。 -->
 		<displayOrderInIssue>40</displayOrderInIssue>
+		<!-- 随机生成文化时的被选权重。**填 0 = 只能手动选，随机生成绝不会带上它。**⚠ 这是本文件最容易被改错的一项：1.2.3b 里这三条是 10 / 1 / 10，照抄会让随机生成的 NPC 文化 100% 落到这三档上（作者本意是「只许手选」）。 -->
 		<defaultSelectionWeight>0</defaultSelectionWeight>
 	</PreceptDef>
 
 	<PreceptDef MayRequire="Ludeon.RimWorld.Ideology">
+		<!-- 本条的稳定标识，被 .rid 与旧存档直接引用 —— 改了等于断掉所有引用，绝不可动。 -->
 		<defName>Luxandra_Whims_Indifferent</defName>
+		<!-- 所属的 issue（决定它出现在哪一组戒律下）。写错 → 这一条在界面上根本不出现，且加载时不会报错（静默消失）。这三个 issue 由 Luxandra Lust 在 2.0 里保留，所以只要它装着就一定解析得到。 -->
 		<issue>Luxandra_Whims</issue>
+		<!-- 档位名（游戏里显示的那一行小标题）。这里是原作者的英文原词，中文翻译在 Languages/ChineseSimplified/DefInjected/PreceptDef/ 下，两边靠 defName 对应，改这里不会影响翻译。 -->
 		<label>indifferent</label>
+		<!-- 档位说明（鼠标悬停时显示的正文）。这里逐字照抄 1.2.3b，不要自己改写 —— 它是玩家判断该不该选这条戒律的唯一依据。 -->
 		<description>No divine being can tell us how to conduct our sexual life.</description>
+		<!-- 影响等级，决定它在戒律界面里的分组位置。取值只认 High / Medium / Low 三档。⚠ 同文化的 precept 必须按 impact 成组连续排列，否则界面会塌成「一行一格」（见 _scratch 里的 refix_impact_order 记录）。这里三条统一 Low，与 1.2.3b 原值一致。 -->
 		<impact>Low</impact>
+		<!-- 30 —— 填进 Whims 组的空位。同上，只要落在同 issue 其它档位之间即可。 -->
 		<displayOrderInIssue>30</displayOrderInIssue>
+		<!-- 随机生成文化时的被选权重。**填 0 = 只能手动选，随机生成绝不会带上它。**⚠ 这是本文件最容易被改错的一项：1.2.3b 里这三条是 10 / 1 / 10，照抄会让随机生成的 NPC 文化 100% 落到这三档上（作者本意是「只许手选」）。 -->
 		<defaultSelectionWeight>0</defaultSelectionWeight>
+		<!-- 是否占用「每个文化最多 12 条戒律」的额度。false = 不占额度，玩家还能再加别的。⚠ 只有 CumOffering 与 Whims 两条写了 false（与 2.0 注释原块一致）；Heart 那条原块里没有这个字段，默认即 true —— 不要「顺手」给它补上，那会改变原意。 -->
 		<countsTowardsPreceptLimit>false</countsTowardsPreceptLimit>
 	</PreceptDef>
 
